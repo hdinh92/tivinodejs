@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Trang quản trị</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" type="imatge/png" href="../../images/web.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link href="https://fonts.googleapis.com/css?family=Livvic:400,600,700,900&display=swap&subset=vietnamese"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-popup-wrap new_login_popup">
+            <div class="login-popup-heading text-center">
+                <h4><i class="fa fa-lock" aria-hidden="true"></i> Đăng nhập </h4>
+            </div>
+            <!-- <form id="loginMember" role="form" action="" method="post"> -->
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Admin"  name="Th_Ten" id="Th_Ten">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Admin"  name="Th_Mat_khau" id="Th_Mat_khau">
+                </div>
+                <button id="Th_Dong_y" class="btn btn-default login-popup-btn">Đăng nhập</button>
+            <!-- </form> -->
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../Controller/Controller.js"></script>
+    <script>
+        Th_Dong_y.onclick = () => {
+            //alert('Hi');
+            if (Th_Ten.value.trim() != "" && Th_Mat_khau.value.trim() != "") {
+                var Nguoi_dung = {
+                    "Ten_Dang_nhap": Th_Ten.value.trim(),
+                    "Mat_khau": Th_Mat_khau.value.trim()
+                }
+                var kq = Dang_nhap(Nguoi_dung);
+                if (kq.Noi_dung == false) {
+                    alert(`Đăng nhập không thành công`)
+                } else {
+                    sessionStorage.setItem("Nguoi_dung", JSON.stringify(kq))
+                    window.location = `Admin.html`
+                }
+            } else {
+                alert(`Dữ liệu không hợp lệ`)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

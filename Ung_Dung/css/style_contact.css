@@ -1,0 +1,27 @@
+.contact{
+    margin-top:3rem;
+    padding:5rem;
+    text-align: center;
+}
+.contact h3{
+    color:grey;
+}
+.card-contact{
+    min-height: 30rem;
+}
+.btn-contact{
+    font-size:1.4rem !important;
+    border-radius: 5px;
+}
+.card-contact .card-header{
+    font-size: 1.8rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.card-contact .card-text{
+    font-size: 1.6rem !important;
+}
+.contact-form{
+    text-align: left;
+    font-size: 1.6rem !important;
+}

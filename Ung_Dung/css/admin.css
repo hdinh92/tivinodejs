@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after{
+    padding:0 ;
+    margin:0 ;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+body{
+    font-family: 'Livvic', sans-serif;
+    font-size: 16px;
+}
+
+.login-popup-wrap{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%)
+}
+
+.login-popup-heading>h4 {
+    color: #1428a0;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.new_reg_popup, .new_login_popup {
+    border-radius: 2px;
+    min-height: 332px;
+    width: 500px;
+    margin: 0px auto;
+}
+.login-popup-btn {
+    background: #1428a0;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    height: 38px;
+    line-height: 28px;
+    margin: 20px auto 5px;
+    width: 150px;
+    -webkit-transition: all 700ms ease;
+    -moz-transition: all 700ms ease;
+    -ms-transition: all 700ms ease;
+    -o-transition: all 700ms ease;
+}
+a{
+     color: #1428a0 ;
+     font-size: 18px;
+}
+
+#Khung_Chuc_nang{
+    width: 100%;
+    border: none;
+    overflow: hidden;
+    height: 200vh;
+}
+hr{
+    border: .5px solid grey ;
+  width: 90%;
+  margin-left: 50px
+}
+
+.btn-secondary {
+    background : #eeeeec !important;
+    text-align: center;
+}
+
+a:hover
+{
+    background: #1428a0 !important;
+    color:white !important;
+    cursor: pointer;
+}
+.active {
+    background: #1428a0 !important;
+}
+.btn-primary{
+    background: #1428a0 !important;
+}

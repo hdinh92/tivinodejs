@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" type="imatge/png" href="../../images/web.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link href="https://fonts.googleapis.com/css?family=Livvic:400,600,700,900&display=swap&subset=vietnamese"
+        rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="container">
+        <fieldset class="border m-2 p-2 text-info">
+            <form>
+                <div class="form-group">
+                    <label>Tên Tivi</label>
+                    <input type="text" class="form-control" placeholder="Nhập tên Tivi" id="Th_Ten">
+                </div>
+                <div class="form-group">
+                    <label>Code</label>
+                    <input type="text" class="form-control" placeholder="Nhập Code Tivi" id="Th_Code">
+                </div>
+                <div class="form-group">
+                    <label for="Th_Nhom_Tivi">Hãng</label>
+                    <select id="Th_Nhom_Tivi" class="form-control" onchange="Lay_Ma_so_cuoi()">
+                        <option value="0">Chọn Hãng</option>
+                        <option value="SAMSUNG">SAMSUNG</option>
+                        <option value="SONY">SONY</option>
+                        <option value="TOSHIBA">TOSHIBA</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Th_Ma_so">Mã số Tivi</label>
+                    <input type="text" class="form-control" id="Th_Ma_so" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Mô tả</label>
+                    <textarea class="form-control" rows="3" id="Th_Mota"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Số lượng tồn</label>
+                    <input type="number" class="form-control" id="Th_SLTon" min = "0" value = "1"> 
+                </div>
+                <div class="form-group">
+                    <label for="Th_Don_gia_Nhap">Đơn giá Nhập</label>
+                    <input type="text" class="form-control" id="Th_Don_gia_Nhap" placeholder="Nhập Đơn giá Nhập">
+                </div>
+                <div class="form-group">
+                    <label for="Th_Don_gia_Nhap">Đơn giá Bán</label>
+                    <input type="text" class="form-control" id="Th_Don_gia_Ban" placeholder="Nhập Đơn giá Bán">
+                </div>
+                <div class="form-group  mb-3">
+                    <label for="Th_file">Chọn hình</label>
+                    <input id="Th_file" type="file" onchange="Xem_truoc_Media()" accept="image/png" />
+                    <img id="Th_Hinh_Xem_truoc" style="height:5rem;"/>
+                </div>
+                <hr>
+                <div class="float-right">
+                    <button type="button" class="btn btn-primary" id="Th_Dong_y">Đồng ý</button>
+                    <button type="button" class="btn btn-danger" id="Th_Xoa">Xóa</button>
+                </div>
+            </form>
+
+        </fieldset>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../Controller/Controller.js"></script>
+    <script>
+        var Danh_sach_Tivi = Doc_Danh_sach_Tivi()
+        Th_Nhom_Tivi.onchange()
+
+        Th_Xoa.onclick = () =>{
+            Th_Ten.value = "";
+            Th_Code.value ="";
+            Th_Nhom_Tivi.value = 0;
+            Th_Ma_so.value = "";
+            Th_Mota.value = "";
+            Th_SLTon.value = 1;
+            Th_Don_gia_Nhap.value=""
+            Th_Don_gia_Ban.value = "";
+            Th_file.value = "";
+            location.href = '#body';
+        }
+
+        Th_Dong_y.onclick = () => {
+            var Kq = XL_Ghi_Them()
+            alert("Thêm thành công")
+            Th_Ten.value = "";
+            Th_Code.value ="";
+            Th_SLTon.value = 1;
+            Th_Nhom_Tivi.value = 0;
+            Th_Ma_so.value = "";
+            Th_Mota.value = "";
+            Th_Don_gia_Nhap.value=""
+            Th_Don_gia_Ban.value = "";
+            Th_file.value = "";
+            location.href = '#body';
+        }
+
+        function XL_Ghi_Them() {
+            var Kq = ""
+            var Ma_so = Th_Ma_so.value
+            var Ten = Th_Ten.value
+            var Code = Th_Code.value
+            var Mota = Th_Mota.value
+            var SLTon = Th_SLTon.value
+            var Don_gia_Nhap = Th_Don_gia_Nhap.value
+            var Don_gia_Ban = Th_Don_gia_Ban.value
+            var Nhom_San_Pham_Ten = Th_Nhom_Tivi.value
+            var Nhom_San_Pham_Ma_so = Th_Nhom_Tivi.value
+            var San_Pham = {
+                "TenTV": Ten,
+                "Code" : Code,
+                "Mo_ta" : Mota,
+                "Ma_so": Ma_so,
+                "So_luong_Ton" : SLTon,
+                "Don_gia_Ban": parseInt(Don_gia_Ban),
+                "Don_gia_Nhap": parseInt(Don_gia_Nhap),
+                "Nhom_Tivi": {
+                    "Ten": Nhom_San_Pham_Ten,
+                    "Ma_so": Nhom_San_Pham_Ma_so
+                }
+            }
+            // Thêm Sản phẩm
+            var San_Pham = Ghi_San_Pham_Moi(San_Pham)
+            if (San_Pham) {
+                Danh_sach_Tivi.push(San_Pham)
+                // Cập nhật Media
+                var reader = new FileReader()
+                var Chuoi_nhi_phan = ""
+                var Ten_Hinh = `${Ma_so}.png`
+                reader.onload = function (e) {
+                    Chuoi_nhi_phan = e.target.result;
+                    var Doi_tuong = { "Ten": Ten_Hinh, "Chuoi_nhi_phan": Chuoi_nhi_phan }
+                    Kq = Ghi_Media(Doi_tuong)
+                    return Kq
+                }
+                reader.readAsDataURL(Th_file.files[0])
+                
+            }
+        }
+
+        function Xem_truoc_Media() {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                Th_Hinh_Xem_truoc.src = e.target.result;
+            }
+            reader.readAsDataURL(Th_file.files[0]);
+        }
+        function Lay_Ma_so_cuoi() {
+            Nhom_Tivi = Th_Nhom_Tivi.value;
+            var Danh_sach_Ma_so = []
+            Danh_sach_Tivi.forEach(San_Pham => {
+                if (San_Pham.Nhom_Tivi.Ma_so == Nhom_Tivi) {
+                    var Thanh_phan_con = San_Pham.Ma_so.trim().split("_")
+                    Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[1]))
+                }
+            })
+            Danh_sach_Ma_so.sort(function (a, b) {
+                return a - b
+            })
+            var Ma_so_Sau_cung = Danh_sach_Ma_so[Danh_sach_Ma_so.length - 1]
+            Ma_so_Sau_cung += 1
+            Th_Ma_so.value = Nhom_Tivi + "_" + Ma_so_Sau_cung.toString()
+        }
+    </script>
+</body>
+
+</html>

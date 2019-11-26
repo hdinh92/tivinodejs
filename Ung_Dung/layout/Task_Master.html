@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Tivi shop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="imatge/png" href="../images/web.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/mdb.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link href="https://fonts.googleapis.com/css?family=Livvic:400,600,700,900&display=swap&subset=vietnamese"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand" href="#" id="Th_Logo"> </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index.html">Trang chủ <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Danh mục </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Task_ItemList.html"> Sản phẩm</a></li>
+                            <li><a class="dropdown-item" href="#"> Tin tức </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Cửa hàng </a></li>
+                    <li class="nav-item"><a class="nav-link" href="Task_Contact.html"> Liên hệ </a></li>
+                    <!-- <li class="nav-item">
+                    <a class="btn ml-2 btn-warning" href="http://bootstrap-ecommerce.com">Download</a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+        <!-- end nav-->
+    </header>
+    <main>
+        <section class="section-landing">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../images/landing.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>SONY BRAVIA</h5>
+                            <p>SIÊU HÌNH ẢNH, ĐỈNH ÂM THANH</p>
+                            <a type="" class="btn btn-light btnmore">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../images/landing2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>QLED8K</h5>
+                            <p>Đỉnh cao công nghệ tivi</p>
+                            <a class="btn btn-light btnmore">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+        <!-- -----------------------------end carousel------------------------- -->
+        <section class="section-product">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <!-- 16:9 aspect ratio -->
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                                    allow="autoplay"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="title-primary mb-5">Khám Phá Công nghệ Tivi</h3>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class=" col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="card sp-card">
+                            <div class="item-img">
+                                <img class="card-img-top img-fluid" src="../images/item-1.jpg" alt="">
+                            </div>
+                            <h4 class="item-text">QLED TV</h4>
+                            <a href="#" class="vid-icon video-btn" data-toggle="modal"
+                                data-src="https://www.youtube.com/embed/6Bf3ELxx7Q0" data-target="#myModal">
+                                <i class="fa fa-play-circle " aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="card sp-card">
+                            <div class="item-img">
+                                <img class="card-img-top img-fluid" src="../images/item-2.jpg" alt="">
+                            </div>
+                            <h4 class="item-text">Premium 4K UHD TV</h4>
+                            <a href="#" class="vid-icon video-btn" data-toggle="modal"
+                                data-src="https://www.youtube.com/embed/UnoRYVZqOjI" data-target="#myModal">
+                                <i class="fa fa-play-circle " aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="card sp-card">
+                            <div class="item-img">
+                                <img class="card-img-top img-fluid" src="../images/item-3.jpg" alt="">
+                            </div>
+                            <h4 class="item-text">SMART TV</h4>
+                            <a href="#" class="vid-icon video-btn" data-toggle="modal"
+                                data-src="https://www.youtube.com/embed/br9yftCP9Mg" data-target="#myModal">
+                                <i class="fa fa-play-circle " aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ---------------end section-product--------------- -->
+        <section class="section-news--mb">
+            <h3>Tin tức mới nhất</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="card--mb text-left">
+                            <img class="card-img-top img-fluid" src="../images/news1.jpg" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title--mb">Kỉ nguyên công nghệ Tivi mới</h4>
+                                <p class="card-text--mb">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Obcaecati, sapiente rerum. Inventore tenetur sed velit doloremque. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="card--mb text-left">
+                            <img class="card-img-top img-fluid" src="../images/news4.jpg" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title--mb">Kỉ nguyên công nghệ Tivi mới</h4>
+                                <p class="card-text--mb">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Obcaecati, sapiente rerum. Inventore tenetur sed velit doloremque. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="card--mb text-left">
+                            <img class="card-img-top img-fluid" src="../images/news3.jpg" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title--mb">Kỉ nguyên công nghệ Tivi mới</h4>
+                                <p class="card-text--mb">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Obcaecati, sapiente rerum. Inventore tenetur sed velit doloremque. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-light mt-5">Xem thêm</button>
+            </div>
+        </section>
+        <section class="section-news">
+            <h3 class="title-primary">Tin tức mới nhất</h3>
+            <div class="accordian col-12">
+                <ul>
+                    <li>
+                        <div class="image_title">
+                            <a href="">Kỷ Nguyên TV Định Chuẩn Hoàn Mỹ</a>
+                        </div>
+                        <a href="#">
+                            <img src="../images/news1.jpg" />
+                        </a>
+                    </li>
+                    <li>
+                        <div class="image_title">
+                            <a href="">Kỷ Nguyên TV Định Chuẩn Hoàn Mỹ</a>
+                        </div>
+                        <a href="#">
+                            <img src="../images/news3.jpg" />
+                        </a>
+                    </li>
+                    <li>
+                        <div class="image_title">
+                            <a href="">Kỷ Nguyên TV Định Chuẩn Hoàn Mỹ</a>
+                        </div>
+                        <a href="#">
+                            <img src="../images/news5.jpg" />
+                        </a>
+                    </li>
+                    <li>
+                        <div class="image_title">
+                            <a href="#">Kỷ Nguyên TV Định Chuẩn Hoàn Mỹ</a>
+                        </div>
+                        <a href="#">
+                            <img src="../images/news4.jpg" />
+                        </a>
+                    </li>
+                    <li>
+                        <div class="image_title">
+                            <a href="">Kỷ Nguyên TV Định Chuẩn Hoàn Mỹ</a>
+                        </div>
+                        <a href="#">
+                            <img src="../images/news6.jpg" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- ===================end section-news=================== -->
+        <section class="section-control">
+            <h3 class="title-secondary">Chúng tôi có thể giúp bạn tìm kiếm?</h3>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-10 offset-md-2">
+                        <form class="form-inline md-form form-lg mt-3">
+                            <input class="form-control form-control-lg ml-3 w-75" type="text"
+                                placeholder="BRAVIA OLED TIVI" aria-label="Search">
+                            <a id="mSearch"> <i class="fa fa-search" aria-hidden="true"> </i></a>
+                        </form>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class=" col-lg-4 col-md-6 col-sm-12 col-12">
+                        <div class="card sp-card card-control">
+                            <div class="card-body">
+                                <div class="card-icon"><i class="icon icon-basic-smartphone"></i></div>
+                                <div class="card-content">
+                                    <h4 class="card-title">18001529</h4>
+                                    <p class="card-text">Miễn phí cuộc gọi, từ 08:00' - 22:00' <br />
+                                        (Chủ Nhật, ngày Lễ, Tết
+                                        nghỉ)</p>
+                                    <span class="card-text__mini"><span class="card-text__mini-phone">1900234515</span>
+                                        dành cho sản phẩm TV</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-12 col-12">
+                        <div class="card sp-card card-control">
+                            <div class="card-body">
+                                <div class="card-icon"><i class="icon icon-basic-geolocalize-05"></i></div>
+                                <div class="card-content">
+                                    <h4 class="card-title">Tìm đại lý</h4>
+                                    <p class="card-text">Hệ thống phân phối toàn quốc</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-12 col-12">
+                        <div class="card sp-card card-control">
+                            <div class="card-body">
+                                <div class="card-icon"><i class="icon icon-basic-lock"></i></div>
+                                <div class="card-content">
+                                    <h4 class="card-title">E - Warranty</h4>
+                                    <p class="card-text">Bảo hành điện tử</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-12 mt-3">
+                        <p>*Hình ảnh hiện thị ở màn hình trên đầu trang dùng cho mục đích minh họa
+                            <p>*Các tính năng và thông số kỹ thuật có thể thay đổi mà không cần thông báo trước.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-2">
+                        <div class="mail-box">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <input class="fxf-tbox" type="email" placeholder="Nhập Email" required
+                                id="Th_MailSubscribe">
+                            <button class="fxf-btn" type="button" name="button" id="Th_Subscribe">NHẬP MAIL</button>
+
+                        </div>
+                        <p class="mail-box-text mt-3" id="Th_TBSubscribe">(Nhập Email để nhận nhiều tin tức ưu đãi hơn)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="main-footer__left" id="Th_info_footer">
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="main-footer__center">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3 class="footer-title ">
+                                        Thông tin Công ty
+                                    </h3>
+                                    <div class="footer-nav">
+                                        <ul class="footer-list">
+                                            <li class="footer-item"><a href="#" class="footer-link">Về chúng tôi</a>
+                                            </li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Tin tức và sự
+                                                    kiện</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Blog</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h3 class="footer-title ">
+                                        Bạn cần hỗ trợ ?
+                                    </h3>
+                                    <div class="footer-nav">
+                                        <ul class="footer-list">
+                                            <li class="footer-item"><a href="#" class="footer-link">Liên hệ</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Hỗ trợ trực tiếp</a>
+                                            </li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Email</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Điện thoại</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Trung tâm bảo
+                                                    hành</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="main-footer__right">
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="footer-btn" type="button" name="button">Nói với chúng tôi</button>
+                                </div>
+                                <div class="col-12">
+                                    <div class="footer-payment">
+                                        <img src="../images/pay1.png">
+                                        <img src="../images/pay2.png">
+                                        <img src="../images/pay3.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/mdb.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/style.js"></script>
+    <script src="../Controller/Controller.js"></script>
+    <script>VideoModal()</script>
+    <script>
+        var Cua_hang = Doc_Thong_tin_Cua_hang();
+        Xuat_Thong_tin_Cua_hang(Cua_hang, Th_Logo)
+        Xuat_Thong_tin_Cua_hang_Footer(Cua_hang, Th_info_footer)
+        window.onscroll = function () {
+            scrollNav();
+        }
+    </script>
+    <script>
+        mSearch.onclick = () => {
+            alert('đang cập nhật')
+        }
+        Th_Subscribe.onclick = () => {
+            if (Th_MailSubscribe.value != "") {
+                var email = Th_MailSubscribe.value
+                var html = `email:${email}`
+                let Kq = Khach_hang_Lien_he(html)
+                if (Kq == "OK") {
+                    Th_TBSubscribe.style.color = "green"
+                    Th_TBSubscribe.innerHTML =`Cám ơn bạn đã quan tâm`
+                }
+            } else {
+                Th_TBSubscribe.style.color = "red"
+                Th_TBSubscribe.innerHTML =`Xin hãy cung cấp thông tin email`
+                Th_MailSubscribe.focus();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

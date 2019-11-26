@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Tivi shop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" type="imatge/png" href="../images/web.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/mdb.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link href="https://fonts.googleapis.com/css?family=Livvic:400,600,700,900&display=swap&subset=vietnamese"
+        rel="stylesheet">
+    
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
+                <a class="navbar-brand" href="#" id="Th_Logo"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar1">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Trang chủ <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Danh mục </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="Task_ItemList.html"> Sản phẩm</a></li>
+                                <li><a class="dropdown-item" href="#"> Tin tức </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#"> Cửa hàng </a></li>
+                        <li class="nav-item"><a class="nav-link" href="Task_Contact.html"> Liên hệ </a></li>
+                        <!-- <li class="nav-item">
+                                <a class="btn ml-2 btn-warning" href="http://bootstrap-ecommerce.com">Download</a></li> -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <!-- end nav-->
+    </header>
+    <div class="pbanner">
+        <div class="pbanner-text">
+            <h4>Tivi</h4>
+            <p>Thưởng thức hình ảnh, âm thanh đỉnh cao trên tivi OLED.</p>
+        </div>
+    </div>
+    <!--===================end BANNER=======================-->
+    <main class="no-space">
+        <div class="container-fluid mt-5">
+            <div class="product-control">
+                <h3 class="title-secondary text-center">Chúng tôi có thể giúp bạn tìm kiếm?</h3>
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-md-10 offset-md-2">
+                            <form class="form-inline md-form form-lg mt-3" onsubmit="event.preventDefault();">
+                                <input class="form-control form-control-lg ml-3 w-75" type="text"
+                                    placeholder="BRAVIA OLED TIVI" id="Th_gtTim" onkeyup="KeyCode(event)">
+                                <a href="#sort-control" id="Th_Tim"> <i class="fa fa-search" aria-hidden="true"></i></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filter-control">
+            <div class="col-3">
+                <!-- id = inlineFormCustomSelect -->
+                <select class="custom-select mr-sm-2" id="Th_Loc_gia">
+                    <option value="0-50000000"> -- Chọn giá bán -- &nbsp;&nbsp;&nbsp; &crarr; </option>
+                    <option value="0-5000000">Dưới 5 triệu</option>
+                    <option value="5000000-10000000">Từ 5 triệu đến 10 triệu</option>
+                    <option value="10000000-20000000">Từ 10 triệu đến 20 triệu</option>
+                    <option value="20000000-50000000">Trên 20 triệu</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="sort-control" id="sort-control">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-9">
+                        <div class="sort-result" id="sort-result">
+                            <label>
+                                <span id="Th_Thong_bao"></span>
+                                Kết quả (Các kết quả)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="sort-panel">
+                            <select class="custom-select mr-sm-2" id="Th_Sap_xep_DKien">
+                                <option value="0">Sắp xếp theo-- &nbsp;&nbsp;&nbsp; &darr; </option>
+                                <option value="1">Sắp xếp theo Tên (A->Z)</option>
+                                <option value="2">Sắp xếp theo Tên (Z->A)</option>
+                                <option value="3">Sắp xếp theo Giá (A->Z)</option>
+                                <option value="4">Sắp xếp theo Giá (Z->A)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid text-center">
+            <!-- <h1 class="title-primary">Lựa chọn Tivi</h1> -->
+            <div class="col-4 offset-4 sort-tivi">
+                <select class="custom-select mr-sm-2" id="Th_Sap_xep">
+                    <option value="0">Xem tất cả tivi &nbsp; &raquo; </option>
+                    <option value="1">SAMSUNG</option>
+                    <option value="2">Sony</option>
+                    <option value="3">Toshiba</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <div class="clearfix"></div>
+
+        <!-- Thể hiện danh sách sản phẩm  -->
+        <div class="container-fluid">
+            <div class="row" id="Th_Danh_sach">
+
+            </div>
+        </div>
+
+        <!-- Thể hiện phân trang -->
+        <div class="container-fluid m-5" id="Th_Phan_trang">
+        </div>
+
+
+        <!-- Thể hiện modal chi tiết sản phẩm  -->
+        <!-- Button trigger modal -->
+        <button type="button" id="Th_ShowModal" class="btn btn-primary btn-lg d-none " data-toggle="modal"
+            data-target="#modelId">
+            Launch
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-none" id="Th_TitleModal">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="Th_DetailModal">
+                        Body
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="fixed-bottom text-right mr-2 mb-3 " id="Th_Mua_hang">
+            <span class="text-white bg-primary btn border border-primary scart">
+                <span id="Th_Gio_hang" class="text-danger"><u class="scart-link">0</u></span>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </span>
+        </div>
+
+    </main>
+
+
+
+
+    <footer class="footer mt-5">
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-12 mt-3">
+                        <p>*Hình ảnh hiện thị ở màn hình trên đầu trang dùng cho mục đích minh họa
+                            <p>*Các tính năng và thông số kỹ thuật có thể thay đổi mà không cần thông báo trước.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-2">
+                        <div class="mail-box">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <input class="fxf-tbox" type="email" placeholder="Nhập Email" required
+                                id="Th_MailSubscribe">
+                            <button class="fxf-btn" type="button" name="button" id="Th_Subscribe">NHẬP MAIL</button>
+
+                        </div>
+                        <p class="mail-box-text mt-3" id="Th_TBSubscribe">(Nhập Email để nhận nhiều tin tức ưu đãi hơn)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="main-footer__left" id="Th_info_footer">
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="main-footer__center">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3 class="footer-title ">
+                                        Thông tin Công ty
+                                    </h3>
+                                    <div class="footer-nav">
+                                        <ul class="footer-list">
+                                            <li class="footer-item"><a href="#" class="footer-link">Về chúng tôi</a>
+                                            </li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Tin tức và sự
+                                                    kiện</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Blog</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h3 class="footer-title ">
+                                        Bạn cần hỗ trợ ?
+                                    </h3>
+                                    <div class="footer-nav">
+                                        <ul class="footer-list">
+                                            <li class="footer-item"><a href="#" class="footer-link">Liên hệ</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Hỗ trợ trực tiếp</a>
+                                            </li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Email</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Điện thoại</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Trung tâm bảo
+                                                    hành</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="main-footer__right">
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="footer-btn" type="button" name="button">Nói với chúng tôi</button>
+                                </div>
+                                <div class="col-12">
+                                    <div class="footer-payment">
+                                        <img src="../images/pay1.png">
+                                        <img src="../images/pay2.png">
+                                        <img src="../images/pay3.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/mdb.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../Controller/Controller.js"></script>
+    <script src="../js/style.js"></script>
+    <script>
+        window.onscroll = function () {
+            scrollNav();
+        }
+        Th_Subscribe.onclick = () => {
+            if (Th_MailSubscribe.value != "") {
+                var email = Th_MailSubscribe.value
+                var html = `email:${email}`
+                let Kq = Khach_hang_Lien_he(html)
+                if (Kq == "OK") {
+                    Th_TBSubscribe.style.color = "green"
+                    Th_TBSubscribe.innerHTML =`Cám ơn bạn đã quan tâm`
+                }
+            } else {
+                Th_TBSubscribe.style.color = "red"
+                Th_TBSubscribe.innerHTML =`Xin hãy cung cấp thông tin email`
+                Th_MailSubscribe.focus();
+            }
+        }
+    </script>
+    <script>
+        var Cua_hang = Doc_Thong_tin_Cua_hang();
+        Xuat_Thong_tin_Cua_hang(Cua_hang, Th_Logo)
+        Xuat_Thong_tin_Cua_hang_Footer(Cua_hang, Th_info_footer)
+        var Danh_sach_Tivi = Doc_Danh_sach_Tivi()
+
+        let tong = Danh_sach_Tivi.length;
+        let limit = 6;
+        let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+        Tao_thanh_phan_trang(pages, Th_Phan_trang)
+        Xu_ly_Phan_trang()
+        Xuat_Danh_sach_Tivi(Danh_sach_Tivi, Th_Danh_sach, 0, 6)
+        showModal()
+        addCart()
+
+        Th_Mua_hang.onclick = () => {
+            if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+                window.location = "Task_Cart.html";
+            }
+        }
+        if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+            var ds = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"))
+            Th_Gio_hang.innerHTML = `<u class="scart-link">${ds.length}</u>`
+        }
+
+        function KeyCode(event) {
+            if (event.keyCode == 13) {
+                var gtTim = event.target.value
+                var Danh_sach_Tim = Danh_sach_Tivi.filter(x => x.TenTV.toLowerCase().includes(gtTim.toLowerCase()))
+                let tong = Danh_sach_Tim.length;
+                let limit = 6;
+                let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+                Tao_thanh_phan_trang(pages, Th_Phan_trang)
+                Xu_ly_Phan_trang()
+                Xuat_Danh_sach_Tivi(Danh_sach_Tim, Th_Danh_sach, 0, 6)
+                showModal()
+                addCart()
+                location.href = '#sort-result';
+            }
+        }
+
+        Th_Tim.onclick = () => {
+            var gtTim = Th_gtTim.value.trim()
+            if (gtTim != "") {
+                var Danh_sach_Tim = Danh_sach_Tivi.filter(x => x.TenTV.toLowerCase().includes(gtTim.toLowerCase()))
+
+                let tong = Danh_sach_Tim.length;
+                let limit = 6;
+                let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+                Tao_thanh_phan_trang(pages, Th_Phan_trang)
+                Xu_ly_Phan_trang()
+                Xuat_Danh_sach_Tivi(Danh_sach_Tim, Th_Danh_sach, 0, 6)
+                showModal()
+                addCart()
+                location.href = '#sort-result';
+            }
+        }
+
+        Th_Sap_xep.onchange = () => {
+            let gtChon = Number(Th_Sap_xep.value);
+            switch (gtChon) {
+                case 1:
+                    Nhom_SamSung()
+                    break;
+                case 2:
+                    Nhom_Sony()
+                    break;
+                case 3:
+                    Nhom_Toshiba()
+                    break;
+                default:
+                    let tong = Danh_sach_Tivi.length;
+                    let limit = 6;
+                    let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+                    Tao_thanh_phan_trang(pages, Th_Phan_trang)
+                    Xu_ly_Phan_trang()
+                    Xuat_Danh_sach_Tivi(Danh_sach_Tivi, Th_Danh_sach, 0, 6)
+                    showModal()
+                    addCart()
+            }
+        }
+
+        function Nhom_SamSung() {
+            var dsSamsung = Danh_sach_Tivi.filter(x => x.Nhom_Tivi.Ma_so == "SAMSUNG")
+            let tong = dsSamsung.length;
+            let limit = 6;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Xuat_Danh_sach_Tivi(dsSamsung, Th_Danh_sach, 0, 6)
+            location.href = '#Th_Loc_gia';
+            showModal()
+            addCart()
+        }
+
+        function Nhom_Sony() {
+            var dsSony = Danh_sach_Tivi.filter(x => x.Nhom_Tivi.Ma_so == "SONY")
+            let tong = dsSony.length;
+            let limit = 6;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Xuat_Danh_sach_Tivi(dsSony, Th_Danh_sach, 0, 6)
+            location.href = '#Th_Loc_gia';
+            showModal()
+            addCart()
+        }
+
+        function Nhom_Toshiba() {
+            var dsToshiba = Danh_sach_Tivi.filter(x => x.Nhom_Tivi.Ma_so == "TOSHIBA")
+            let tong = dsToshiba.length;
+            let limit = 6;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Xuat_Danh_sach_Tivi(dsToshiba, Th_Danh_sach, 0, 6)
+            location.href = '#Th_Loc_gia';
+            showModal()
+            addCart()
+        }
+
+        Th_Loc_gia.onchange = () => {
+            let gia = Th_Loc_gia.value.split('-');
+            let bd = parseInt(gia[0])
+            let kt = parseInt(gia[1])
+            let dsKq = Danh_sach_Tivi.filter(x => parseInt(x.Don_gia_Ban) >= bd && parseInt(x.Don_gia_Ban) <= kt)
+            let tong = dsKq.length;
+            let limit = 6;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Xuat_Danh_sach_Tivi(dsKq, Th_Danh_sach, 0, 6)
+            location.href = '#Th_Loc_gia';
+            showModal()
+            addCart()
+        }
+
+        Th_Sap_xep_DKien.onchange = () => {
+            let gtChon = Number(Th_Sap_xep_DKien.value);
+            switch (gtChon) {
+                case 1:
+                    Sap_Tang_theo_Ten()
+                    break;
+                case 2:
+                    Sap_Giam_theo_Ten()
+                    break;
+                case 3:
+                    Sap_Tang_Gia();
+                    break;
+                case 4:
+                    Sap_Giam_Gia()
+                    break;
+                default:
+            }
+        }
+
+        function Sap_Tang_theo_Ten() {
+            Danh_sach_Tivi.sort((a, b) => a.TenTV.localeCompare(b.TenTV))
+            let tong = Danh_sach_Tivi.length;
+            let limit = 6;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Xuat_Danh_sach_Tivi(Danh_sach_Tivi, Th_Danh_sach, 0, 6)
+            location.href = '#Th_Loc_gia';
+            showModal()
+            addCart()
+        }
+        function Sap_Giam_theo_Ten() {
+            Danh_sach_Tivi.sort((a, b) => b.TenTV.localeCompare(a.TenTV))
+            let tong = Danh_sach_Tivi.length;
+            let limit = 6;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Xuat_Danh_sach_Tivi(Danh_sach_Tivi, Th_Danh_sach, 0, 6)
+            location.href = '#Th_Loc_gia';
+            showModal()
+            addCart()
+        }
+        function Sap_Tang_Gia() {
+            Danh_sach_Tivi.sort((a, b) => {
+                return parseInt(a.Don_gia_Ban) - parseInt(b.Don_gia_Ban)
+            })
+            let tong = Danh_sach_Tivi.length;
+            let limit = 6;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Xuat_Danh_sach_Tivi(Danh_sach_Tivi, Th_Danh_sach, 0, 6)
+            location.href = '#Th_Loc_gia';
+            showModal()
+            addCart()
+        }
+        function Sap_Giam_Gia() {
+            let tong = Danh_sach_Tivi.length;
+            let limit = 6;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Danh_sach_Tivi.sort((a, b) => {
+                return parseInt(b.Don_gia_Ban) - parseInt(a.Don_gia_Ban)
+            })
+            Xuat_Danh_sach_Tivi(Danh_sach_Tivi, Th_Danh_sach, 0, 6)
+            location.href = '#Th_Loc_gia';
+            showModal()
+            addCart()
+        }
+    </script>
+
+
+
+</body>
+
+</html>

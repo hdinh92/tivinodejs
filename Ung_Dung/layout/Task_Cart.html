@@ -1,0 +1,548 @@
+<script>
+    var ds = []
+    if (sessionStorage.getItem("Danh_sach_Chon") == undefined) {
+        window.location = "Task_ItemList.html"
+    } else {
+        ds = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"))
+    }
+
+</script>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>ITEM</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="imatge/png" href="../images/web.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/mdb.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link href="https://fonts.googleapis.com/css?family=Livvic:400,600,700,900&display=swap&subset=vietnamese"
+        rel="stylesheet">
+</head>
+<style>
+    .shopping-cart {
+        min-height: 100vh;
+        margin-top: 90px;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
+                <a class="navbar-brand" href="#" id="Th_Logo"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar1">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Danh mục </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="Task_ItemList.html"> Sản phẩm</a></li>
+                                <li><a class="dropdown-item" href="#"> Tin tức </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#"> Cửa hàng </a></li>
+                        <li class="nav-item"><a class="nav-link" href="Task_Contact.html"> Liên hệ </a></li>
+                        <!-- <li class="nav-item">
+                                <a class="btn ml-2 btn-warning" href="http://bootstrap-ecommerce.com">Download</a></li> -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <!-- end nav-->
+    </header>
+    <main>
+        <div id="Th_Cha">
+            <div class="shopping-cart">
+                <div class="column-labels">
+                    <label class="product-image">Image</label>
+                    <label class="product-details">Product</label>
+                    <label class="product-price">Giá</label>
+                    <label class="product-quantity">Số lượng</label>
+                    <label class="product-removal">Xóa</label>
+                    <label class="product-line-price">Tổng giá</label>
+                </div>
+
+                <div id="Th_Danh_sach_San_Pham_Mua"></div>
+
+                <!-- <div class="totals">
+                    <div class="totals-item totals-item-total">
+                        <label>Tổng tiền</label>
+                        <div class="totals-value" id="cart-total">VNĐ</div>
+                    </div>
+                </div> -->
+
+                <button class="checkout" id="Th_ThanhToan">Thanh toán</button>
+                <button class="continue btn btn-warning" id="Th_Mua_tiep">Tiếp tục mua hàng</button>
+            </div>
+
+            <div id="hold"></div>
+
+            <div class="contact-form" id="contact-form">
+                <div class="container-fluid">
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header bg-info text-white"><i class="fa fa-truck"></i>
+                                    THÔNG TIN GIAO HÀNG
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label>Họ tên</label>
+                                            <input type="text" class="form-control" placeholder="Nhập họ tên" required
+                                                style=" font-size: 1.6rem" id="Th_Ho_ten">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" aria-describedby="emailHelp"
+                                                placeholder="Nhập Email" required style=" font-size: 1.6rem"
+                                                id="Th_Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Điện thoại</label>
+                                            <input type="text" class="form-control" placeholder="Nhập điện thoại"
+                                                required style=" font-size: 1.6rem" id="Th_Dien_thoai">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Địa chỉ giao hàng</label>
+                                            <input type="text" class="form-control" placeholder="Nhập địa chỉ" required
+                                                style=" font-size: 1.6rem" id="Th_Dia_chi">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Th_Ngay_Giao_hang">Ngày Giao hàng:</label>
+                                            <input type="date" class="form-control" id="Th_Ngay_Giao_hang">
+                                        </div>
+                                    </form>
+                                    <div class="mx-auto">
+                                        <button class="btn btn-info text-right" id="Th_Dong_y"
+                                            style=" font-size: 1.3rem">Thanh toán</button>
+                                        <button class="btn btn-light text-right" id="Th_Bo_qua"
+                                            style=" font-size: 1.3rem">Xóa giỏ hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer mt-5">
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-12 mt-3">
+                        <p>*Hình ảnh hiện thị ở màn hình trên đầu trang dùng cho mục đích minh họa
+                            <p>*Các tính năng và thông số kỹ thuật có thể thay đổi mà không cần thông báo trước.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-2">
+                        <div class="mail-box">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <input class="fxf-tbox" type="email" placeholder="Nhập Email" required
+                                id="Th_MailSubscribe">
+                            <button class="fxf-btn" type="button" name="button" id="Th_Subscribe">NHẬP MAIL</button>
+
+                        </div>
+                        <p class="mail-box-text mt-3" id="Th_TBSubscribe">(Nhập Email để nhận nhiều tin tức ưu đãi hơn)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="main-footer__left" id="Th_info_footer">
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="main-footer__center">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3 class="footer-title ">
+                                        Thông tin Công ty
+                                    </h3>
+                                    <div class="footer-nav">
+                                        <ul class="footer-list">
+                                            <li class="footer-item"><a href="#" class="footer-link">Về chúng tôi</a>
+                                            </li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Tin tức và sự
+                                                    kiện</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Blog</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h3 class="footer-title ">
+                                        Bạn cần hỗ trợ ?
+                                    </h3>
+                                    <div class="footer-nav">
+                                        <ul class="footer-list">
+                                            <li class="footer-item"><a href="#" class="footer-link">Liên hệ</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Hỗ trợ trực tiếp</a>
+                                            </li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Email</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Điện thoại</a></li>
+                                            <li class="footer-item"><a href="#" class="footer-link">Trung tâm bảo
+                                                    hành</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="main-footer__right">
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="footer-btn" type="button" name="button">Nói với chúng tôi</button>
+                                </div>
+                                <div class="col-12">
+                                    <div class="footer-payment">
+                                        <img src="../images/pay1.png">
+                                        <img src="../images/pay2.png">
+                                        <img src="../images/pay3.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/mdb.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/style.js"></script>
+    <script src="../Controller/Controller.js"></script>
+    <script>
+        window.onscroll = function () {
+            scrollNav();
+        }
+        Th_Subscribe.onclick = () => {
+            if (Th_MailSubscribe.value != "") {
+                var email = Th_MailSubscribe.value
+                var html = `email:${email}`
+                let Kq = Khach_hang_Lien_he(html)
+                if (Kq == "OK") {
+                    Th_TBSubscribe.style.color = "green"
+                    Th_TBSubscribe.innerHTML =`Cám ơn bạn đã quan tâm`
+                }
+            } else {
+                Th_TBSubscribe.style.color = "red"
+                Th_TBSubscribe.innerHTML =`Xin hãy cung cấp thông tin email`
+                Th_MailSubscribe.focus();
+            }
+        }
+        var Cua_hang = Doc_Thong_tin_Cua_hang();
+        Xuat_Thong_tin_Cua_hang(Cua_hang, Th_Logo)
+        Xuat_Thong_tin_Cua_hang_Footer(Cua_hang, Th_info_footer)
+
+        var Danh_sach_Tivi = Doc_Danh_sach_Tivi()
+        var Danh_sach_Cap_nhat = []
+        Danh_sach_Chon = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"))
+        Danh_sach_Chon.forEach(Tv => {
+            var San_Pham = Danh_sach_Tivi.find(x => x.Ma_so == Tv)
+            Danh_sach_Cap_nhat.push(San_Pham)
+        })
+
+        Xuat_San_Pham_Mua(Danh_sach_Cap_nhat, Th_Danh_sach_San_Pham_Mua)
+        delCart()
+
+        Th_ThanhToan.onclick = () => {
+            location.href = '#hold';
+        }
+
+        Th_Mua_tiep.onclick = () => {
+            window.location = "Task_ItemList.html"
+        }
+
+        Th_Bo_qua.onclick = () => {
+            var r = confirm("Bạn thật sự muốn xóa danh sách sản phẩm đã mua ?");
+            if (r == true) {
+                sessionStorage.removeItem("Danh_sach_Chon")
+                window.location = "Task_ItemList.html"
+            }
+        }
+
+
+
+        function Xuat_San_Pham_Mua(Danh_sach_Mua, Th_Cha) {
+            Th_Cha.innerHTML = ""
+            var noi_dung_HTML = ``
+
+            var Tong = 0
+            Danh_sach_Mua.forEach(San_Pham_Mua => {
+                noi_dung_HTML += `
+                <div class="product">
+                    <div class="product-image">
+                        <img src="${Dia_chi_Media}/${San_Pham_Mua.Ma_so}-1.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">${San_Pham_Mua.TenTV}</div>
+                        <p class="product-description">${San_Pham_Mua.Mo_ta}</p>
+                    </div>
+                    <div class="product-price">${San_Pham_Mua.Don_gia_Ban}</div>
+                    <div class="product-quantity">
+                        <input type="number" value="1" min="0" id="Th_So_luong_${San_Pham_Mua.Ma_so}">
+                    </div>
+                    <div class="product-removal">
+                        <button class="remove-product cdel"  data="${San_Pham_Mua.Ma_so}"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <div class="product-line-price">${San_Pham_Mua.Don_gia_Ban}</div>
+                </div>
+            `
+             Tong += 1 * San_Pham_Mua.Don_gia_Ban
+            })
+            noi_dung_HTML += `
+                <div class="totals">
+                    <div class="totals-item totals-item-total">
+                        <label>Tổng tiền</label>
+                        <div class="totals-value text-info" id="cart-total" style="font-weight:bold"> ${Tao_Chuoi_The_hien_So_nguyen_duong(Tong)} đ</div>
+                    </div>
+                </div>
+            `
+            Th_Cha.innerHTML = noi_dung_HTML
+        }
+
+        Th_Dong_y.onclick = () => {
+            var Ds_Dat = []
+            Danh_sach_Cap_nhat.forEach(San_Pham => {
+                var Phieu_Dat = {
+                    "Ngay_Dat_hang": new Date().toLocaleDateString(),
+                    "Ngay_Giao_hang": new Date(Th_Ngay_Giao_hang.value).toLocaleDateString(),
+                    "So_luong": parseInt(document.querySelector(`#Th_So_luong_${San_Pham.Ma_so}`).value),
+                    "Don_gia_Ban": parseInt(San_Pham.Don_gia_Ban),
+                    "Tien": parseInt(San_Pham.Don_gia_Ban) * parseInt(document.querySelector(`#Th_So_luong_${San_Pham.Ma_so}`).value),
+                    "Trang_thai": "CHUA_GIAO_HANG",
+                    "Khach_hang": {
+                        "Ho_ten": Th_Ho_ten.value,
+                        "Dien_thoai": Th_Dien_thoai.value,
+                        "Email": Th_Email.value,
+                        "Dia_chi": Th_Dia_chi.value
+                    }
+                }
+                
+                var Khach_hang = {
+                    "San_Pham": San_Pham,
+                    "Phieu_Dat": Phieu_Dat
+                }
+
+                Ds_Dat.push(Khach_hang)
+            })
+  
+            var Kq = Ghi_Phieu_Dat_hang(Ds_Dat)
+            if (Kq == "OK") {
+                Xuat_Thong_tin_Dat_hang_Thanh_cong(Th_Cha, Ds_Dat)
+                sessionStorage.removeItem("Danh_sach_Chon")
+                location.href = '#Th_Cha';
+            }
+          
+        }
+
+        function Xuat_Thong_tin_Dat_hang_Thanh_cong(Th_Cha, Ds_Phieu_Dat) {
+            var noi_dung_HTML = `
+            <div class="container">
+                <table id="cart" class="table table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width:72%">Sản phẩm</th>
+                            <th style="width:15%">Đơn giá</th>
+                            <th style="width:13%">Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `
+            var Tong = 0
+            Ds_Phieu_Dat.forEach(Khach => {
+                noi_dung_HTML += `
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-2 hidden-xs">
+                                    <img src="${Dia_chi_Media}/${Khach.San_Pham.Ma_so}-1.jpg" class="img-fluid" alt="">
+                                    </div>
+                                <div class="col-sm-10">
+                                    <h4 class="nomargin">${Khach.San_Pham.TenTV}</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">${Tao_Chuoi_The_hien_So_nguyen_duong(Khach.San_Pham.Don_gia_Ban)} đ</td>
+                        <td data-th="Quantity">
+                                ${Khach.Phieu_Dat.So_luong}
+                        </td>
+                        <td></td>
+                    </tr>
+                `
+                Tong += Khach.Phieu_Dat.So_luong * Khach.San_Pham.Don_gia_Ban
+            })
+            console.log(Ds_Phieu_Dat)
+
+            noi_dung_HTML += `
+                    </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2" class="hidden-xs"></td>
+                                    <td class="hidden-xs text-center"><strong>Tổng thành tiền: 
+                                    ${Tao_Chuoi_The_hien_So_nguyen_duong(Tong)} đ </strong></td>
+                                </tr>
+                                <tr>
+                                <td colspan="2" class="hidden-xs"></td>
+                                <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>      
+                    <div class="container text-center mt-5">
+                        <fieldset class="border m-2 p-2">
+                            <legend class="text-danger">
+                                <h1>Cảm ơn quý khách</h1>
+                            </legend>
+                            <div class="text-left ml-3">
+                                <table class="table">
+                                    <tr>
+                                        <th style="width:40%">Chào Quí khách:</th>
+                                        <td style="width:60%">
+                                            <p class="text-info" style="font-size:1.6rem">
+                                                ${Ds_Phieu_Dat[0].Phieu_Dat.Khach_hang.Ho_ten}
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width:40%">Nhân viên Chúng tôi sẽ giao hàng theo địa chỉ: </th>
+                                        <td style="width:60%">
+                                            <p class="text-info" style="font-size:1.6rem">
+                                                ${Ds_Phieu_Dat[0].Phieu_Dat.Khach_hang.Dia_chi}
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width:40%">Liên hệ quí khách qua số điện thoại: </th>
+                                        <td style="width:60%">
+                                            <p class="text-info" style="font-size:1.6rem">
+                                                ${Ds_Phieu_Dat[0].Phieu_Dat.Khach_hang.Dien_thoai}
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width:40%">Email</th>
+                                        <td style="width:60%">
+                                            <p class="text-info" style="font-size:1.6rem">
+                                                ${Ds_Phieu_Dat[0].Phieu_Dat.Khach_hang.Email}
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </fieldset>
+                    </div>     
+                    <div class="container mt-5 text-center">
+                        <a class="btn btn-info w-50 " onclick="window.location='Task_ItemList.html'">Xác nhận <i class="fa fa-angle-right"></i></a>
+                    </div>         
+            `
+            Th_Cha.innerHTML = noi_dung_HTML
+        }
+
+        function delCart() {
+            let dsDel = document.querySelectorAll(".cdel")
+            dsDel.forEach(del => {
+                del.onclick = () => {
+                    let ma_so = del.getAttribute('data')
+                    let San_Pham = Danh_sach_Tivi.find(x => x.Ma_so == ma_so)
+                    let vtdel = ds.indexOf(San_Pham.Ma_so)
+                    console.log(vtdel)
+                    if (vtdel !== -1) {
+                        ds.splice(vtdel, 1)
+                    }
+                    if (ds.length > 0) {
+                        sessionStorage.setItem("Danh_sach_Chon", JSON.stringify(ds))
+                    } else {
+                        sessionStorage.removeItem("Danh_sach_Chon")
+                        alert('Giỏ hàng trống - Xin bạn hãy lựa chọn sản phẩm')
+                        window.location = "Task_ItemList.html"
+                    }
+                    removeItem(this)
+                }
+            })
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var fadeTime = 300;
+            $('.product-quantity input').change(function () {
+                updateQuantity(this);
+            });
+            $('.product-removal button').click(function () {
+                removeItem(this);
+            });
+
+            function recalculateCart() {
+                var subtotal = 0;
+                $('.product').each(function () {
+                    subtotal += parseFloat($(this).children('.product-line-price').text());
+                });
+                var total = subtotal;
+                $('.totals-value').fadeOut(fadeTime, function () {
+                    $('#cart-subtotal').html(Tao_Chuoi_The_hien_So_nguyen_duong(subtotal));
+                    $('#cart-total').html(Tao_Chuoi_The_hien_So_nguyen_duong(total));
+                    $('.totals-value').fadeIn(fadeTime);
+                });
+            }
+
+            function updateQuantity(quantityInput) {
+                var productRow = $(quantityInput).parent().parent();
+                var price = parseFloat(productRow.children('.product-price').text());
+                var quantity = $(quantityInput).val();
+                var linePrice = price * quantity;
+
+                productRow.children('.product-line-price').each(function () {
+                    $(this).fadeOut(fadeTime, function () {
+                        $(this).text(linePrice);
+                        recalculateCart();
+                        $(this).fadeIn(fadeTime);
+                    });
+                });
+            }
+
+            function removeItem(removeButton) {
+                var productRow = $(removeButton).parent().parent();
+                productRow.slideUp(fadeTime, function () {
+                    productRow.remove();
+                    recalculateCart();
+                });
+            }
+
+        });
+    </script>
+
+
+</body>
+
+</html>

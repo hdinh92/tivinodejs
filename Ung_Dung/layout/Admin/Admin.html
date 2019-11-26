@@ -1,0 +1,77 @@
+<script>
+        if (sessionStorage.getItem('Nguoi_dung')==undefined){
+            window.location=`Login.html`
+        }else{
+            var Nguoi_dung=JSON.parse(sessionStorage.getItem('Nguoi_dung'));
+        }
+</script>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Trang quản trị</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" type="imatge/png" href="../../images/web.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link href="https://fonts.googleapis.com/css?family=Livvic:400,600,700,900&display=swap&subset=vietnamese"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+    <h2 class="text-primary text-center m-3">TRANG QUẢN TRỊ</h2>
+    </div>
+    <div class="container-fluid">
+        <nav class="nav nav-tabs nav-stacked" id="menu">
+            <a class="active nav-link btn-secondary col-4 rounded-0 border border-primary"
+                onclick="Hien_thi_Trang('Task_Info.html')"> Thông tin</a>
+            <a class=" nav-link btn-secondary col-4 rounded-0 border border-primary"
+                onclick="Hien_thi_Trang('Task_All.html')">Danh sách sản phẩm</a>
+            <a class=" nav-link btn-secondary col-4 rounded-0 border border-primary"
+                onclick="Hien_thi_Trang('Task_AddProduct.html')">Thêm sản phẩm</a>
+        </nav>
+        <div class="float-right m-3">Xin chào <span class="text-danger" id="Th_Nguoi_dung"></span>  <button id="Th_Dang_xuat" class="btn btn-link ml-1" onclick='Thoat_Dang_nhap()'>Thoát </button> </div>
+        
+    </div>
+    <br />
+
+    <div class="container-fluid">
+        <iframe id="Khung_Chuc_nang" name="khung"></iframe>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../Controller/Controller.js"></script>
+    <script>
+        Khung_Chuc_nang.src = "Task_Info.html";
+        function Hien_thi_Trang(trang_hien_thi) {
+            Khung_Chuc_nang.src = trang_hien_thi
+        }
+        $('#menu a').on('click', function () {
+            $('#menu a.active').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        Th_Nguoi_dung.innerHTML = `${Nguoi_dung.Noi_dung.Ten}`
+        function Thoat_Dang_nhap(){
+            sessionStorage.removeItem("Nguoi_dung");
+            window.location=`Login.html`
+        }
+    </script>
+
+
+</body>
+
+</html>

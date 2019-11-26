@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" type="imatge/png" href="../../images/web.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link href="https://fonts.googleapis.com/css?family=Livvic:400,600,700,900&display=swap&subset=vietnamese"
+        rel="stylesheet">
+    <style>
+        .CAP_NHAP {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form class="w-100" onsubmit="event.preventDefault();">
+            <div class="row" id="search">
+                <div class="col-9 form-group">
+                    <input class="form-control" type="text" placeholder="Search" id="Th_gtTim" />
+                </div>
+                <div class="form-group col-3">
+                    <button type="submit" class="btn btn-block btn-primary border border-primary"
+                        id="Th_Tim">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="row" id="filter">
+            <div class="col-3">
+                <select class="custom-select mr-sm-2 filter" id="Th_Sap_xep">
+                    <option value="0">Tất cả tivi </option>
+                    <option value="1">SAMSUNG</option>
+                    <option value="2">SONY</option>
+                    <option value="3">TOSHIBA</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <select class="custom-select mr-sm-2 filter" id="Th_Sap_xep_DKien">
+                    <option value="0">Lọc giá bán </option>
+                    <option value="1">Sắp xếp theo Giá Tăng</option>
+                    <option value="2">Sắp xếp theo Giá Giảm</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <select class="custom-select mr-sm-2 filter" id="Th_Sap_xep_TT">
+                    <option value="0">Tình trạng </option>
+                    <option value="1">Còn hàng</option>
+                    <option value="2">Hết hàng</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="main-body-content w-100 ets-pt mt-3">
+        <div class="table-responsive bg-light">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tên Sản phẩm</th>
+                        <th scope="col">Nhóm</th>
+                        <th scope="col">Số lượng tồn</th>
+                        <th scope="col">Đơn giá bán</th>
+                        <th scope="col">Đơn giá nhập</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody id="Th_Danh_sach"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Thể hiện phân trang -->
+    <div class="container-fluid m-5" id="Th_Phan_trang"></div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../Controller/Controller.js"></script>
+    <script>
+        var Danh_sach_Tivi = Doc_Danh_sach_Tivi()
+        let tong = Danh_sach_Tivi.length;
+        let limit = 10;
+        let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+        Tao_thanh_phan_trang(pages, Th_Phan_trang)
+        Xu_ly_Phan_trang_Admin()
+        Xuat_Danh_sach_Tivi_Admin(Danh_sach_Tivi, Th_Danh_sach, 0, 10)
+    </script>
+
+    <script>
+        Th_Tim.onclick = () => {
+            var gtTim = Th_gtTim.value.trim()
+            if (gtTim != "") {
+                var Danh_sach_Tim = Danh_sach_Tivi.filter(x => x.TenTV.toLowerCase().includes(gtTim.toLowerCase()))
+                let tong = Danh_sach_Tim.length;
+                let limit = 10;
+                let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+                Tao_thanh_phan_trang(pages, Th_Phan_trang)
+                Xu_ly_Phan_trang_Admin()
+                Xuat_Danh_sach_Tivi_Admin(Danh_sach_Tim, Th_Danh_sach, 0, 10)
+            } else {
+                Tao_thanh_phan_trang(pages, Th_Phan_trang)
+                Xu_ly_Phan_trang_Admin()
+                Xuat_Danh_sach_Tivi_Admin(Danh_sach_Tivi, Th_Danh_sach, 0, 10)
+            }
+        }
+        Th_Sap_xep.onchange = () => {
+            Th_gtTim.value = ""
+            let gtChon = Number(Th_Sap_xep.value);
+            switch (gtChon) {
+                case 1:
+                    Nhom_SamSung()
+                    break;
+                case 2:
+                    Nhom_Sony()
+                    break;
+                case 3:
+                    Nhom_Toshiba()
+                    break;
+                default:
+                    let tong = Danh_sach_Tivi.length;
+                    let limit = 10;
+                    let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+                    Tao_thanh_phan_trang(pages, Th_Phan_trang)
+                    Xu_ly_Phan_trang_Admin()
+                    Xuat_Danh_sach_Tivi_Admin(Danh_sach_Tivi, Th_Danh_sach, 0, 10)
+            }
+        }
+
+        function Nhom_SamSung() {
+            var dsSamsung = Danh_sach_Tivi.filter(x => x.Nhom_Tivi.Ma_so == "SAMSUNG")
+            console.log(dsSamsung)
+            let tong = dsSamsung.length;
+            let limit = 12;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang()
+            Xuat_Danh_sach_Tivi_Admin(dsSamsung, Th_Danh_sach, 0, 12)
+        }
+
+        function Nhom_Sony() {
+            var dsSony = Danh_sach_Tivi.filter(x => x.Nhom_Tivi.Ma_so == "SONY")
+            let tong = dsSony.length;
+            let limit = 12;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang_Admin()
+            Xuat_Danh_sach_Tivi_Admin(dsSony, Th_Danh_sach, 0, 12)
+        }
+
+        function Nhom_Toshiba() {
+            var dsToshiba = Danh_sach_Tivi.filter(x => x.Nhom_Tivi.Ma_so == "TOSHIBA")
+            let tong = dsToshiba.length;
+            let limit = 12;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang_Admin()
+            Xuat_Danh_sach_Tivi_Admin(dsToshiba, Th_Danh_sach, 0, 12)
+        }
+        Th_Sap_xep_DKien.onchange = () => {
+            Th_gtTim.value = ""
+            let gtChon = Number(Th_Sap_xep_DKien.value);
+            switch (gtChon) {
+                case 1:
+                    Sap_Tang_Gia();
+                    break;
+                case 2:
+                    Sap_Giam_Gia()
+                    break;
+                default:
+            }
+        }
+
+        function Sap_Tang_Gia() {
+            Danh_sach_Tivi.sort((a, b) => {
+                return parseInt(a.Don_gia_Ban) - parseInt(b.Don_gia_Ban)
+            })
+            let limit = 12;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang_Admin()
+            Xuat_Danh_sach_Tivi_Admin(Danh_sach_Tivi, Th_Danh_sach, 0, 12)
+        }
+        function Sap_Giam_Gia() {
+            Danh_sach_Tivi.sort((a, b) => {
+                return parseInt(b.Don_gia_Ban) - parseInt(a.Don_gia_Ban)
+            })
+            let limit = 12;
+            let pages = tong % limit == 0 ? tong / limit : parseInt(tong / limit) + 1;
+            Tao_thanh_phan_trang(pages, Th_Phan_trang)
+            Xu_ly_Phan_trang_Admin()
+            Xuat_Danh_sach_Tivi_Admin(Danh_sach_Tivi, Th_Danh_sach, 0, 12)
+        }
+    </script>
+
+</body>
+
+</html>
